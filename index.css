@@ -1,0 +1,106 @@
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #faf8ef;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  border: 2px solid #bbada0;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #bbada0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.game-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #776e65;
+  border-radius: 5px;
+  background-color: #cdc1b4;
+  width: 50px;
+  height: 50px;
+}
+
+.cell-2 {
+  background-color: #eee4da;
+}
+
+.cell-4 {
+  background-color: #ede0c8;
+}
+
+.cell-8 {
+  background-color: #f2b179;
+}
+
+.cell-16 {
+  background-color: #f59563;
+}
+
+.cell-32 {
+  background-color: #f67c5f;
+}
+
+.cell-64 {
+  background-color: #f65e3b;
+}
+
+.cell-128 {
+  background-color: #edcf72;
+}
+
+.cell-256 {
+  background-color: #edcc61;
+}
+
+.cell-512 {
+  background-color: #edc850;
+}
+
+.cell-1024 {
+  background-color: #edc53f;
+}
+
+.cell-2048 {
+  background-color: #edc22e;
+}
+
+.cell-4096 {
+  background-color: #3c3a32;
+  color: #ffffff;
+}
+
+.game-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #8f7a66;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.game-button:hover {
+  background-color: #bbada0;
+}
