@@ -2,7 +2,7 @@ const NCOLS = 4, NROWS = 4;
 const gamma = 0.8 ;
 const living_reward = 0.1, dying_reward = 1 ;
 let RANDOM_THRESHOLD = 0.5 ;
-const RANDOM_THRESHOLD_DEC = 0.000047;
+let RANDOM_THRESHOLD_DEC = 0.000049;
 
 moves = [swipeDown,swipeLeft,swipeRight,swipeUp] ;
 movesNames = ["D","L","R","U"] ;
@@ -62,6 +62,9 @@ function optimize(carry){
 
 async function runIterations(nIters = 10){
     i = 0 ;
+    if(nIters > 30)
+        RANDOM_THRESHOLD_DEC = 0.048/nIters ;
+    console.log(RANDOM_THRESHOLD_DEC) ;
     while(true){
         steps = 0 ;
         RANDOM_THRESHOLD -= RANDOM_THRESHOLD_DEC ;
