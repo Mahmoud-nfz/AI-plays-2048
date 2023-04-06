@@ -2,7 +2,7 @@ const NCOLS = 4, NROWS = 4;
 const gamma = 0.8 ;
 const living_reward = 0.1, dying_reward = 1 ;
 let RANDOM_THRESHOLD = 0.5 ;
-const RANDOM_THRESHOLD_DEC = 0.00005 ;
+const RANDOM_THRESHOLD_DEC = 0.000047;
 
 moves = [swipeDown,swipeLeft,swipeRight,swipeUp] ;
 movesNames = ["D","L","R","U"] ;
@@ -60,59 +60,20 @@ function optimize(carry){
     return val ;
 }
 
-function mapToTable(map) {
-    // Create a new table element
-    const table = document.querySelector("table")
-  
-    dp.forEach((value, key) => {
-        // Create a new row element
-        console.log(key,value) ;
-        // row = "<tr></tr>"
-        // row = `<tr><td>${key}</td><td>${value}</td></tr>`
-        // table.innerHTML += row ;
-    });
-  
-    return table;
-  }
-  
-function saveTraining(){    
-    // convert the Map object to a JSON string
-    const json = JSON.stringify(Array.from(dp.entries()));
-    
-    // create a new Blob object from the JSON string
-    const blob = new Blob([json], { type: 'application/json' });
-    
-    // create a new URL for the blob
-    const url = URL.createObjectURL(blob);
-    
-    // create a new link element to download the file
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'myMap.json';
-    
-    // add the link to the document and click it to start the download
-    document.body.appendChild(link);
-    link.click();
-    
-    // clean up by revoking the URL
-    URL.revokeObjectURL(url);
-}
-
-async function train(){
+async function runIterations(nIters = 10){
     i = 0 ;
     while(true){
         steps = 0 ;
         RANDOM_THRESHOLD -= RANDOM_THRESHOLD_DEC ;
         initBoard() ;
         optimize(0) ;
-        // await new Promise(resolve => setTimeout(resolve, 1000));
+        if(SIMULATION_SPEED)
+            await new Promise(resolve => setTimeout(resolve, SIMULATION_SPEED));
         i ++ ;
         if(i%10 == 0)
             console.log("iteration "+i+ " finished with "+steps+" steps") ;  
-        if(i > 1000)
+        if(i > nIters)
             break ;
     }
-    // const table = mapToTable(dp);
-    saveTraining() ;
-
+    // saveTraining() ;
 }

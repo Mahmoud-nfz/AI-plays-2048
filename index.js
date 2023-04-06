@@ -1,13 +1,9 @@
 const speedSlider = document.getElementById("speed-slider");
 const speedValue = document.querySelector(".slider-value");
-let SIMULATION_SPEED = speedSlider.value;
-
-speedSlider.addEventListener("input", function() {
-  speedValue.innerHTML = this.value;
-});
+SIMULATION_SPEED = speeds[speedSlider.value];
 
 speedSlider.addEventListener("change", function() {
-    SIMULATION_SPEED = this.value;
+    SIMULATION_SPEED = speeds[this.value];
 });
 
 // add event listener to reset-button
@@ -46,7 +42,12 @@ function startGame(){
     simulate();
 }
 
-train() ;
-// initBoard() ;
+initBoard() ;
+
+function runIters(){
+    // get #nIters
+    let nIters = document.querySelector('#nIters').value ;
+    runIterations(nIters) ;
+}
 
 

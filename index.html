@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Q Learning viz</title>
+        <title>2048 Q-Learning AI model</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./index.css">
         <!-- favicon gif -->
-        <link rel="icon" href="./favicon.png">
+        <link rel="icon" href="./2048.png">
 
     </head>
     <body>
         <div class="game-container">
             <h1>Q learning visualization</h1>
-            <div>
-                <button class="game-button" id="start-button">Start</button>
-                <button class="game-button" id="reset-button">Reset</button>
+            <!-- number input -->
+            <div class="slider-container center">
+                <h4>Number of iterations : </h4>
+                <input type="number" min="1" value="1000" class="slider" id="nIters">
             </div>
             <div>
-                <button class="right" onclick="swipeRight()">Right</button>
-                <button class="left" onclick="swipeLeft()">Left</button>
-                <button class="up" onclick="swipeUp()">Up</button>
-                <button class="down" onclick="swipeDown()">Down</button>
+                <button class="game-button" id="start-button" onclick="runIters()">Run iterations</button>
+                <button class="game-button" id="reset-button">Reset</button>
+            </div>
+            <div class="center">
+                <button class="up direction-button" onclick="swipeUp()">Up</button>
+                <div>
+                    <button class="left direction-button" onclick="swipeLeft()">Left</button>
+                    <button class="right direction-button" onclick="swipeRight()">Right</button>
+                </div>
+                <button class="down direction-button" onclick="swipeDown()">Down</button>
             </div>
             <div class="slider-container">
                 <h4>Speed : </h4>
-                <input type="range" min="1" max="10" value="5" class="slider" id="speed-slider">
+                <input type="range" min="1" max="10" value="3" class="slider" id="speed-slider">
             </div>              
             <h2 class="instruction">Choose reward cell</h2>
             
