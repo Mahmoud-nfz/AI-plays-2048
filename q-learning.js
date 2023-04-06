@@ -69,11 +69,13 @@ async function runIterations(nIters = 10){
         optimize(0) ;
         if(SIMULATION_SPEED)
             await new Promise(resolve => setTimeout(resolve, SIMULATION_SPEED));
-        i ++ ;
-        if(i%10 == 0)
+        if(i%10 == 0){
             console.log("iteration "+i+ " finished with "+steps+" steps") ;  
+            addMovesDataPoint(steps) ;
+        }
         if(i > nIters)
             break ;
+        i ++ ;
     }
     // saveTraining() ;
 }
