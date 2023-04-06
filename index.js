@@ -25,7 +25,6 @@ let possibleInserts = [2,4];
 // add 100 game cells to the game board
 
 
-insertValue();
 
 function lose(){
     console.log("lost") ;
@@ -48,5 +47,6 @@ function startGame(){
 }
 
 train() ;
+// initBoard() ;
 
 

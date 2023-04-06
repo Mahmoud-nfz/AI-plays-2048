@@ -6,7 +6,8 @@ function mergeCells(arr){
     while(i<arr.length){
         if(i<arr.length && arr[i] == arr[i+1]){
             newArr.push(arr[i]*2);
-            i ++ ;
+            i += 2 ;
+            continue ;
         }
         newArr.push(arr[i]);
         i ++ ;
@@ -177,4 +178,5 @@ function initBoard(){
         }
         grid.push(row.slice());
     }
+    insertValue();
 }
